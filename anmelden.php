@@ -49,7 +49,7 @@
 			<p>Empfänger: <b>DRK Kreisverband Oldenburg</b></p>
 			<p>IBAN: <b>DE89 2802 0050 1421 6576 00</b></p>
 			<p>BIC: <b>OLBODEH2XXX</b></p>
-			<p>Verwendungszweck: <b><?php echo htmlspecialchars($name) . " " . $pdo->lastInsertId(); ?></b></p>
+			<p>Verwendungszweck: <b><?php echo "OS " . htmlspecialchars($name) . " " . $pdo->lastInsertId(); ?></b></p>
 
 		</div>
 		<div class="container">
