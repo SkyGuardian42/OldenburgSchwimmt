@@ -1,0 +1,13 @@
+//output: minderjaehrigenhinweis.html
+doctype html
+html
+  head
+    include includes/head
+  body
+    .content(style="display:flex; flex-direction:column;justify-content:space-between;min-height:100vh;")
+      .container
+        h1 Minderjährigenhinweis
+        p Personen unter 18 Jahren benötigen die Einverständniserklärung der Eltern/Erziehungsberechtigten.
+        a.button.u-full-width(href='elternzettel.pdf' target='blank') Hier Herunterladen
+      .container
+        include includes/footer

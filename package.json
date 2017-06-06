@@ -1,0 +1,23 @@
+{
+  "name": "oldenburg-schwimmt",
+  "version": "3.2.4",
+  "description": "Die Website für den Schwimmwettbewerb Oldenburg schwimmt",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkyGuardian42/OldenburgSchwimmt.git"
+  },
+  "author": "Malte Janßen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkyGuardian42/OldenburgSchwimmt/issues"
+  },
+  "homepage": "https://github.com/SkyGuardian42/OldenburgSchwimmt#readme",
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.8"
+  }
+}
