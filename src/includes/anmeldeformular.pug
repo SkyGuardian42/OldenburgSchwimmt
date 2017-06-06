@@ -1,0 +1,30 @@
+form.anmeldung(action='anmelden' method='POST' accept-charset='UTF-8')
+          .row
+            .eight.columns
+              label(for="name") Name 
+              input.u-full-width(type='text' placeholder='Max Mustermann' name='name' required)
+            .four.columns
+              label(for="name") Geburtsjahr 
+              input.u-full-width(type='number' min="1930" max="2011" placeholder='1990' name='age' required)
+          .row
+            .twelve.columns
+              label(for="email") Email 
+              input.u-full-width(type='email' placeholder="max-musterman@mail.com" name='email' required )
+          .row.tshirt
+            .ten.columns
+              label
+                input(type="checkbox" name='tshirt')
+                span.label-body T-Shirt mitkaufen? (+10€)
+            .two.columns
+              label(for="size") Größe 
+              select.u-full-width(id='size' name='size')
+                option(value='s') S
+                option(value='m') M
+                option(value='l') L
+                option(value='xl') XL
+                option(value='xxl') XXL
+          label
+            input(type="checkbox" name='agb' required)
+            span.label-body Ich habe den <a href='haftungsausschluss' target='_blank'>Haftungsausschluss</a> und den <a href='minderjaehrigenhinweis' target='_blank'>Minderjährigenhinweis</a> gelesen und akzeptiert.
+          input.u-full-width(class="button-primary" type="submit" value="Abschicken")
+            

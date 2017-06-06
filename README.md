@@ -1,0 +1,16 @@
+# Oldenburg schwimmt Website
+Der folgende Text ist die Dokumentation für die Website für die Schwimmveranstaltung Oldenburg schwimmt. Im `Assets/` Ordner befinden sich alle Rohdateien, wie zum Beispiel das Logo. 
+## Inhalt
+1. Aufbau der Website
+2. Dateien kompilieren
+3. Dateien hochladen
+4. Serverkonfiguration
+## Aufbau der Website
+Für die HTML-Dateien wird der Preprocessor [Pug](https://pugjs.org) verwendet, dessen Dateien durch die .pug Dateiendung gekennzeichnet sind, und später zu HTML kompiliert werden. Die CSS Dateien werden mit den Preprocessor [SASS](http://sass-lang.com/) kompiliert, gekennzeichnet durch die .sass und .scss Dateiendung. In jede Seite wir der selbe Footer und Header eingefügt, welche beide im `src/includes/` Ordner zu finden sind. Als CSS-Boilerplate wird [Skeleton](http://getskeleton.com/) verwendet. Außerdem wird [Normalize.css](https://necolas.github.io/normalize.css/) verwendet, um Browserstandarts zu vereinheitlichen. Google Analytics wird zur Analyse der Websitenutzung verwendet. Das Anmeldeformular ist in [PHP](https://secure.php.net/) geschrieben und greift auf eine [MySql](https://www.mysql.com/) Datenbank auf dem Server zu.
+## Dateien kompilieren
+Bevor die Dateien auf den Server hochgeladen werden können, müssen die Pug und SASS Dateien kompiliert werden und alle anderen Dateien kopiert werden. Dafür benutze ich [Gulp](http://gulpjs.com/), ein Taskrunner der die einzelnen Prozesse automatisiert. Gulp ist ein Programm für [NodeJS](https://nodejs.org/), weswegen müssen nach dem Download die Abhängigkeiten heruntergeladen werden, was einfach mit dem Befehl `npm install` getan werden kann, wenn [NodeJS](https://nodejs.org/) und [NPM](https://www.npmjs.com/) auf dem PC installiert sind. Mit [Gulp](http://gulpjs.com/) können wir jetzt einfach die Dateien aus `src/` in den `public/` Ordner kopieren und kompilieren. Der Befehl dafür ist `gulp`. Dieser führt die Anweisungen in der `gulpfile.js` Datei aus. In der Gulpfile kann auch das PHP-Anmeldungsformular aktiviert werden, welches dann die PHP-Datei in `src/php/anmeldungenGeschlossen.php` oder `src/php/anmeldungenOffen.php` in `public/anmeldungen.php` verschiebt. Um das Anmeldungsformular anzuzeigen muss außerdem die Zeile `//- include includes/anmeldeformular` in der `src/index.pug` auskommentiert werden.
+## Dateien hochladen
+Der Server wird über [DigitalOcean](https://www.digitalocean.com/) gehostet.
+Mit Hilfe des SFTP Protokolls kann man sich einfach mit dem Server auf Port 22 verbinden, zum Beispiel mit dem kostenlosen FTP-Programm [FileZilla](https://filezilla-project.org/). Die Websitedateien befinden sich im Ordner `/var/www/OLSchwimmt/`, in den die Dateien aus dem `public/` Ordner kopiert werden können.
+## Serverkonfiguration
+Der Server verwendet die kostenlose Version von [NGINX](https://www.nginx.com/), um die HTML-Dateien zu liefern. Die Konfigurationsdateien dafür befinden sich im `/etc/nginx/sites-available/default`. Das SSL-Zertifikat für das HTTPS-Protokoll kostenlos von [Let's Encrypt](https://letsencrypt.org/) bereitgestellt und sollte automatisch durch einen Cronjob erneuert werden. Aktuell ist der Server so eingerichtet, dass alle HTTP-Anfragen auf HTTPS weitergeleitet werden. Die Domain ist auf [Namecheap](https://www.namecheap.com/) gekauft.
