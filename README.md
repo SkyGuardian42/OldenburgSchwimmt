@@ -1,5 +1,5 @@
 # Oldenburg schwimmt Website
-Der folgende Text ist die Dokumentation für die Website für die Schwimmveranstaltung Oldenburg schwimmt. Im `Assets/` Ordner befinden sich alle Rohdateien, wie zum Beispiel das Logo. 
+Der folgende Text ist die Dokumentation für die Website für die Schwimmveranstaltung Oldenburg schwimmt. Im `assets/` Ordner befinden sich alle Rohdateien, wie zum Beispiel das Logo. 
 ## Inhalt
 1. Aufbau der Website
 2. Dateien kompilieren
@@ -13,4 +13,4 @@ Bevor die Dateien auf den Server hochgeladen werden können, müssen die Pug und
 Der Server wird über [DigitalOcean](https://www.digitalocean.com/) gehostet.
 Mit Hilfe des SFTP Protokolls kann man sich einfach mit dem Server auf Port 22 verbinden, zum Beispiel mit dem kostenlosen FTP-Programm [FileZilla](https://filezilla-project.org/). Die Websitedateien befinden sich im Ordner `/var/www/OLSchwimmt/`, in den die Dateien aus dem `public/` Ordner kopiert werden können.
 ## Serverkonfiguration
-Der Server verwendet die kostenlose Version von [NGINX](https://www.nginx.com/), um die HTML-Dateien zu liefern. Die Konfigurationsdateien dafür befinden sich im `/etc/nginx/sites-available/default`. Das SSL-Zertifikat für das HTTPS-Protokoll kostenlos von [Let's Encrypt](https://letsencrypt.org/) bereitgestellt und sollte automatisch durch einen Cronjob erneuert werden. Aktuell ist der Server so eingerichtet, dass alle HTTP-Anfragen auf HTTPS weitergeleitet werden. Die Domain ist auf [Namecheap](https://www.namecheap.com/) gekauft.
+Der Server verwendet die kostenlose Version von [NGINX](https://www.nginx.com/), um die HTML-Dateien zu liefern. Die Konfigurationsdateien dafür befinden sich im `/etc/nginx/sites-available/default`. Das SSL-Zertifikat für das HTTPS-Protokoll kostenlos von [Let's Encrypt](https://letsencrypt.org/) bereitgestellt und sollte automatisch durch einen Cronjob erneuert werden. Aktuell ist der Server so eingerichtet, dass alle HTTP-Anfragen auf HTTPS weitergeleitet werden. Die Domain ist auf [Namecheap](https://www.namecheap.com/) registriert.

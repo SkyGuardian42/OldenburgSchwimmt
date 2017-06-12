@@ -3,11 +3,12 @@
 // grab our packages
 var gulp   = require('gulp'),
     pug = require('gulp-pug'),
-    sass = require('gulp-sass');
+    sass = require('gulp-sass'),
+    rename = require('gulp-rename');
 
 //true anstatt false schreiben, um Anmeldungen zu aktivieren    
 var anmeldungen = false;
-
+var anmeldungenPath = anmeldungen ? 'anmeldungenOffen.php':'anmeldungenGeschlossen.php';
 //kompiliert die .pug Dateien in .html Dateien
 gulp.task('pug', function buildHTML() {
   return gulp.src('src/*.pug')
@@ -36,19 +37,15 @@ gulp.task('js', function () {
 
 //kopiert die Dateien für das Favicon in den public/ Ordner
 gulp.task('favicon', function () {
-    return gulp.src('src/favicon/*')
+    return gulp.src('src/favicon/*.*')
     .pipe(gulp.dest('public'));
 });
 
 //ändert die anmeldungen.php Datei, je nachdem ob Variable gesetzt
 gulp.task('anmeldungen', function () {
-    if(anmeldungen){
-        return gulp.src('src/php/anmeldungenOffen.php')
-        .pipe(gulp.dest('public/anmeldungen.php'));
-    } else {
-        return gulp.src('src/php/anmeldungenGeschlossen.php')
-        .pipe(gulp.dest('public/anmeldungen.php'));
-    }
+    return gulp.src('src/php/' + anmeldungenPath)
+        .pipe(rename('anmeldungen.php'))
+        .pipe(gulp.dest('public/'));
 });
 
 //standard Gulp Task, führt alle anderen Aufgaben aus wenn gulp Befehl ausgeführt
