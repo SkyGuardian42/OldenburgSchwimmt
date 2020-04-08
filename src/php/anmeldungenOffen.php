@@ -3,8 +3,8 @@
   <?php
   $hostname = "localhost";
   $database = "storage";
-  $user = "root";
-  $password = "ScrePaZ!234";
+  $user = "keinEchterBenutzer";
+  $password = "keinEchtesPasswort";
   $charset = "utf8";
 
 
